@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>W02: Task3</title>
+    <title>W02: Task4</title>
   </head>
   <body>
     <input type="text"
@@ -15,6 +15,13 @@
     <input type="text"
 	   value="0"
 	   id="y1"/>
+    <input type="text"
+	   value="0"
+	   id="x2"/>
+    <input type="text"
+	   value="0"
+	   id="y2"/>
+    <br>
     <input type="button"
 	   value="result"
 	   id="resb"/>
@@ -31,10 +38,12 @@
       v1.x=y0.value;
       v2.x=x1.value;
       v2.x=y1.value;
+      v3.x=x2.value;
+      v3.x=y2.value;
       result = v1.triangle(v1,v2,v3);
       }
       
-      document.write("<br>The result is " + result + "<br>");
+      document.write("<br>" + "The result is " + result + "<br>");
       
 
     </script>
