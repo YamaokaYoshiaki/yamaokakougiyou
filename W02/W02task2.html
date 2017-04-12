@@ -1,9 +1,30 @@
 <html>
   <head>
-    <title>W02: Task8</title>
+    <title>W02: Task9</title>
   </head>
   <body>
-    <input type="text"
+   
+    <script src="vec3.js"></script>
+    <script>
+      var x=0,y=0,z=0;
+      var v1 = new vec3(x,y,z);
+      var v2 = new vec3(x,y,z);
+      var v3 = new vec3(x,y,z);
+      var result = v1.triangle(v1,v2,v3);
+      var s = document.js.x0.value;
+      <br>
+      var f = document.fm;
+      x=f.elements[0].value
+      document.write(x);
+    
+      
+     
+      
+
+    </script>
+  </body>
+  <form name= "fm">
+   <input type="text"
 	   value="0"
 	   id="x0"/>
     <input type="text"
@@ -24,31 +45,5 @@
     <input type="button"
 	   value="result"
 	   id="resb"/>
-    
-    <script src="vec3.js"></script>
-    <script>
-      var x=0,y=0,z=0;
-      var v1 = new vec3(x,y,z);
-      var v2 = new vec3(x,y,z);
-      var v3 = new vec3(x,y,z);
-      var result = v1.triangle(v1,v2,v3);
-      var s = document.js.x0.value;
-      <br><br>
-      document.write("a" + s + "g<br>");
-      document.getElementById('resb').addEventListener('click', function (){
-      v1.x=document.js.x0.value;
-      v1.x=document.js.y0.value;
-      v2.x=document.js.x1.value;
-      v2.x=document.js.y1.value;
-      v3.x=document.js.x2.value;
-      v3.x=document.js.y2.value;
-      result = v1.triangle(v1,v2,v3);
-       document.write("<br>" + "The result is " + result + "<br>");
-      }
-      
-     
-      
-
-    </script>
-  </body>
+    </form>
 </html>
