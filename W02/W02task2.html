@@ -25,19 +25,39 @@
 	   id="y2"/>
     <input type="button"
 	   value="result"
+	   onclick="event()"
 	   id="resb"/>
         </form>
 
     <script src="vec3.js"></script>
     <script>
-       
-      var x=0,y=0,z=0;
-      var v1 = new vec3(x,y,z);
-      var v2 = new vec3(x,y,z);
-      var v3 = new vec3(x,y,z);
-      var result = v1.triangle(v1,v2,v3);
+  
+
       
-      document.write("The result is " + document.forms.fm.x0.value + "<br>");
+      var x0=document.forms.fm.x0.value;
+      var x1=document.forms.fm.x1.value;
+      var x2=document.forms.fm.x2.value;
+      var y0=document.forms.fm.y0.value;
+      var y1=document.forms.fm.y1.value;
+      var y2=document.forms.fm.y2.value;
+      var z=0;
+      var v1 = new vec3(x0,y0,z);
+      var v2 = new vec3(x1,y1,z);
+      var v3 = new vec3(x2,y2,z);
+      var result = v1.triangle(v1,v2,v3);
+
+      function event(){
+      v1 = new vec3(x0,y0,z);
+      v2 = new vec3(x1,y1,z);
+      v3 = new vec3(x2,y2,z);
+      result = v1.triangle(v1,v2,v3);
+      document.write("The result is " + result + "<br>");
+      }
+
+
+      
+
+      
       document.write("The result is " + result + "<br>");
       
       
