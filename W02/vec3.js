@@ -4,7 +4,10 @@ vec3 = function(x,y,z)
     this.y = y;
     this.z = z;
 }
-vec3.prototype.max = function(){
+vec3.prototype.max = function(v){
+    var x=v.x;
+    var y=v.y;
+    var z=v.z;
     if(x>y){
 	if(x>z)
 	    return x;
@@ -18,7 +21,11 @@ vec3.prototype.max = function(){
     }
 }
 
-vec3.prototype.min = function(){
+vec3.prototype.min = function(v){
+    var x=v.x;
+    var y=v.y;
+    var z=v.z;
+
     if(x<y){
 	if(x<z)
 	    return x;
@@ -32,6 +39,10 @@ vec3.prototype.min = function(){
     }
 }
 
-vec3.prototype.mid = function(){
-    return x+y+z-this.min-this.max;
+vec3.prototype.mid = function(v){
+    var x=v.x;
+    var y=v.y;
+    var z=v.z;
+
+    return x+y+z-this.min(v)-this.max(v);
 }
