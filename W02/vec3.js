@@ -55,6 +55,8 @@ vec3.prototype.triangle = function(v1,v2,v3){
     var x2=v3.x-x0;
     var y2=v3.y-y0;
     var t = (x1*y2-x2*y1)/2
+    if(t<0)
+	t*=-1
     return t;
     
 }
