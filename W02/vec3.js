@@ -33,5 +33,5 @@ vec3.prototype.min = function(){
 }
 
 vec3.prototype.mid = function(){
-    return x+y+z-min-max;
+    return x+y+z-this.min-this.max;
 }
