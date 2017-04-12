@@ -5,9 +5,13 @@
   <body>
     <script src="vec3.js"></script>
     <script>
+      var v1 = new vec3(5,4,8);
+      var max=v1.max(v1);
+      var min=v1.min(v1);
+      var mid=v1.mid(v1);
       
       
-      document.write("Inputs:x = " + x + " y = " + y + " z = " + z + "<br>");
+      document.write("Inputs:x = " + v1.x + " y = " + v1.y + " z = " + v1.z + "<br>");
     
       
       document.write("The results: max = " + max + " middle = " + mid + " min = " + min + "<br>");
