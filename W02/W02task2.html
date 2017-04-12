@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>W02: Task9</title>
+    <title>W02: Task8</title>
   </head>
   <body>
     <input type="text"
@@ -33,8 +33,17 @@
       var v3 = new vec3(x,y,z);
       var result = v1.triangle(v1,v2,v3);
       var s = document.js.x0.value;
-      document.write("a" + s + "g<br>"): 
-    
+      document.write("a" + s + "g<br>");
+      document.getElementById('resb').addEventListener('click', function (){
+      v1.x=document.js.x0.value;
+      v1.x=document.js.y0.value;
+      v2.x=document.js.x1.value;
+      v2.x=document.js.y1.value;
+      v3.x=document.js.x2.value;
+      v3.x=document.js.y2.value;
+      result = v1.triangle(v1,v2,v3);
+       document.write("<br>" + "The result is " + result + "<br>");
+      }
       
      
       
