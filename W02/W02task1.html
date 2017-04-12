@@ -4,31 +4,14 @@
   </head>
   <body>
     <script>
-      var x=5;
-      var y=4;
-      var z=8;
-      var max=0;
-      var min=0;
-      var mid=0;
+      var v1 = new vec3(5,4,8);
+      var max=v1.max();
+      var min=v1.min();
+      var mid=v1.mid();
+      
+      
       document.write("Inputs:x = " + x + " y = " + y + " z = " + z + "<br>");
     
-      if(x>y){
-      max=x;
-      min=y;
-      }else{
-      max=y;
-      min=x;
-      }
-      
-      if(z>max){
-      mid=max;
-      max=z;
-      }else if(z>min){
-      mid=z;
-      }else{
-      mid=min;
-      min=z;
-      }
       
       document.write("The results: max = " + max + " middle = " + mid + " min = " + min + "<br>");
       
