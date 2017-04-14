@@ -1,12 +1,9 @@
 // Constructor
 Vec3 = function( x, y, z )
 {
-    document.write("hello");
-
     this.x = x;
     this.y = y;
     this.z = z;
-    document.write("hello2");
 
 }
 
