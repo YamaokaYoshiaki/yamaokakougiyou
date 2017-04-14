@@ -1,99 +1,87 @@
-// Constructor
-Vec3 = function( x, y, z )
+vec3 = function(x,y,z)
 {
-    this.x = x;
-    this.y = y;
-    this.z = z;
-
+    this.x=x;
+    this.y=y;
+    this.z=z;
 }
 
-Vec3.prototype.max=function()
+vec3.prototype.add = function(v)
 {
-    var max=0;
-
-    if(this.x>this.y)
-    {
-    max=this.x;
-    }
-    else
-    {
-    max=this.y;
-    }
-    if(this.z>max)
-    {
-    max=this.z;
-    }
-    return max;
-}
-
-Vec3.prototype.min=function()
-{
-    var min=0;
-    if(this.x>this.y)
-    {
-    min=this.y;
-    }
-    else
-    {
-    min=this.x;
-    }
-    if(min>this.z)
-    {
-    min=this.z;
-    }
-    return min;
-}
-
-Vec3.prototype.mid=function()
-{
-    var mid=0;
-    var sum=0;
-    sum=this.x+this.y+this.z;
-    mid=sum-this.max()-this.min();
-    return mid;
-}
-
-
-
-Vec3.prototype.minus = function(v)
-
-{
-
-this.x=v.x-this.x;
-
-this.y=v.y-this.y;
-
-this.z=v.z-this.z;
-
-return this;
-
-}
-
-Vec3.prototype.CrossProduct = function(v)
-{
-    this.x=v.y*this.z-this.y*v.z;
-    this.y=v.z*this.x-this.z*v.x;
-    this.z=v.x*this.y-this.x*v.y;
+    this.x += v.x;
+    this.y += v.y;
+    this.z += v.z;
     return this;
 }
 
-Vec3.prototype.Length=function();
+vec3.prototype.sub = function(v)
 {
-    var length=0;
-length=Math.pow(this.x,2)+Math.pow(this.y,2)+Math.pow(this.z,2);
-    length=Math.pow(length,1/2);
-    return length;
+    this.x -= v.x;
+    this.y -= v.y;
+    this.z -= v.z;
+    return this;
 }
 
-Vec3.prototype.AreaTriangle()=function(v1,v2)
+vec3.prototype.max = function(v)
 {
-    var length=0;
-    var CP=0;
-    var Area=0;
-    v1=v1.minus(this);
-    v2=v2.minus(this);
-    CP=v1.CrossProduct(v2);
-    length=CP.Length();
-    Area=length/2;
-    return Area;
+    var x = v.x;
+    var y = v.y;
+    var z = v.z;
+    if(x>y)
+    {
+    if(x>z)
+        return x;
+    else
+        return z;
+    }
+    else if(y>z)
+        return y;
+    else
+        return z;
 }
+
+vec3.prototype.min = function(v)
+{
+    if(v.x<v.y)
+    {
+    if(v.x<v.z)
+        return v.x;
+    else
+        return v.z;
+    }
+    else if(v.y<v.z)
+        return v.y;
+    else
+        return v.z;
+}
+
+vec3.prototype.mid = function(v)
+{
+    return this.x + this.y + this.z - this.min(v) - this.max(v);
+}
+
+vec3.prototype.crossproduct = function(v)
+{
+            var x = this.x;
+        var y = this.y;
+        var z = this.z;
+
+        this.x = y * v.z - z * v.y;
+        this.y = z * v.x - x * v.z;
+        this.z = x * v.y - y * v.x;
+
+        return this;
+}
+
+vec3.prototype.length = function(v)
+{
+    return Math.sqrt( this.x * this.x + this.y * this.y + this.z * this.z );
+}
+
+function AreaOfTriangle(v0,v1,v2)
+{
+    var v10 = v0.sub(v1);
+    var v12 = v2.sub(v1);
+    return 0.5*v10.crossproduct(v12).length();
+}
+
+
