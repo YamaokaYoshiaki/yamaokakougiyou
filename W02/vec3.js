@@ -1,9 +1,13 @@
 // Constructor
 Vec3 = function( x, y, z )
 {
-    var this.x = x;
-    var this.y = y;
-    var this.z = z;
+    document.write("hello");
+
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    document.write("hello2");
+
 }
 
 Vec3.prototype.max=function()
