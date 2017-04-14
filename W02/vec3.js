@@ -1,9 +1,9 @@
 // Constructor
 Vec3 = function( x, y, z )
 {
-    this.x = x;
-    this.y = y;
-    this.z = z;
+    var this.x = x;
+    var this.y = y;
+    var this.z = z;
 }
 
 Vec3.prototype.max=function()
