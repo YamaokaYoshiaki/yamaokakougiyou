@@ -61,7 +61,7 @@ vec3.prototype.mid = function(v)
 
 vec3.prototype.crossproduct = function(v)
 {
-            var x = this.x;
+        var x = this.x;
         var y = this.y;
         var z = this.z;
 
@@ -81,7 +81,8 @@ function AreaOfTriangle(v0,v1,v2)
 {
     var v10 = v0.sub(v1);
     var v12 = v2.sub(v1);
-    return 0.5*v10.crossproduct(v12).length();
+    var v22 = v10.crossproduct(v12)
+    return 0.5*v22.length();
 }
 
 
