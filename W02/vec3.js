@@ -74,11 +74,13 @@ vec3.prototype.crossproduct = function(v)
 
 vec3.prototype.length = function(v)
 {
+    document.write("c");
     return Math.sqrt( this.x * this.x + this.y * this.y + this.z * this.z );
 }
 
 function AreaOfTriangle(v0,v1,v2)
 {
+    
     var v10 = v0.sub(v1);
     var v12 = v2.sub(v1);
     var v22 = v10.crossproduct(v12)
