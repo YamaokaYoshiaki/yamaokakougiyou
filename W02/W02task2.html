@@ -1,36 +1,36 @@
 <html>
   <head>
-    <title>W02: Task3</title>
+    <title>W02: Task2</title>
   </head>
   
   <body>
    <form name= "fm">
    <input type="text"
-	  value="1"
+	  value="0"
 	   id="x0"/>
     <input type="text"
-	   value="2"
+	   value="0"
 	   id="y0"/>
     <input type="text"
-	   value="3"
+	   value="0"
 	   id="z0"/>
     <input type="text"
-	   value="4"
+	   value="0"
 	   id="x1"/>
     <input type="text"
-	   value="5"
+	   value="0"
 	   id="y1"/>
     <input type="text"
-	   value="6"
+	   value="0"
 	   id="z1"/>
     <input type="text"
-	   value="7"
+	   value="0"
 	   id="x2"/>
     <input type="text"
-	   value="8"
+	   value="0"
 	   id="y2"/>
     <input type="text"
-	   value="9"
+	   value="0"
 	   id="z2"/>
     <input type="button"
 	   onclick="foobar()"
@@ -40,7 +40,10 @@
     <script src="vec3.js"></script>
     <script>
   
+ 
       
+      
+      function foobar(){
       var x0=document.forms.fm.x0.value;
       var x1=document.forms.fm.x1.value;
       var x2=document.forms.fm.x2.value;
@@ -53,28 +56,7 @@
       var v1 = new vec3(x0,y0,z0);
       var v2 = new vec3(x1,y1,z1);
       var v3 = new vec3(x2,y2,z2);
-      var v4 = v1.length(v2);
       var result = v1.AreaOfTriangle(v1,v2,v3);
-
-
-
-      document.write("The result is " + result + "<br>");
-      
-      
-      function foobar(){
-      x0=document.forms.fm.x0.value;
-      x1=document.forms.fm.x1.value;
-      x2=document.forms.fm.x2.value;
-      y0=document.forms.fm.y0.value;
-      y1=document.forms.fm.y1.value;
-      y2=document.forms.fm.y2.value;
-      z0=document.forms.fm.z0.value;
-      z1=document.forms.fm.z1.value;
-      z2=document.forms.fm.z2.value;
-      v1 = new vec3(x0,y0,z0);
-      v2 = new vec3(x1,y1,z1);
-      v3 = new vec3(x2,y2,z2);
-      result = v1.AreaOfTriangle(v1,v2,v3);
       document.write("The result is " + result + "<br>");
       }
 
