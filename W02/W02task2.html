@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>W02: Task20</title>
+    <title>W02: Task2</title>
   </head>
   
   <body>
@@ -56,11 +56,14 @@
       var z0=document.forms.fm.z0.value;
       var z1=document.forms.fm.z1.value;
       var z2=document.forms.fm.z2.value;
-
+      document.write("a");
       var v1 = new vec3(0,0,0);
       var v2 = new vec3(1,1,1);
       var v3 = new vec3(2,2,2);
-      var result = v1.AreaTriangle(v2,v3);
+      document.write("b");
+
+      var result = v1.AreaTriangle(v1,v2,v3);
+      document.write("c");
 
 
 
