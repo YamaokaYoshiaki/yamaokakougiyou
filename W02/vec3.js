@@ -81,7 +81,7 @@ function(v0,v1,v2)
 {
     var v10 = v0.sub(v1);
     var v12 = v2.sub(v1);
-    var v22 = v10.crossproduct(v12)
+    var v22 = v10.crossproduct(v12);
     return 0.5*v22.length();
 }
 
