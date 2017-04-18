@@ -77,7 +77,7 @@ vec3.prototype.length = function(v)
     return Math.sqrt( this.x * this.x + this.y * this.y + this.z * this.z );
 }
 
-vec3.prototype.AreaOfTriangle = function(v0,v1,v2)
+function(v0,v1,v2)
 {
     var v10 = v0.sub(v1);
     var v12 = v2.sub(v1);
