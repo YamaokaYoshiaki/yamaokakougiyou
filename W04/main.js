@@ -27,8 +27,8 @@ function main()
     function loop()
     {
         requestAnimationFrame( loop );
-        cube.rotation.x += 0.001;
-        cube.rotation.y += 0.001;
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
         renderer.render( scene, camera );
     }
 }
