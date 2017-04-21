@@ -21,11 +21,9 @@ vec3.prototype.sub = function(v)
     return this;
 }
 
-vec3.prototype.max = function(v)
+vec3.prototype.max = function()
 {
-    var x = v.x;
-    var y = v.y;
-    var z = v.z;
+ 
     if(x>y)
     {
     if(x>z)
@@ -39,7 +37,7 @@ vec3.prototype.max = function(v)
         return z;
 }
 
-vec3.prototype.min = function(v)
+vec3.prototype.min = function()
 {
     if(v.x<v.y)
     {
@@ -54,9 +52,9 @@ vec3.prototype.min = function(v)
         return v.z;
 }
 
-vec3.prototype.mid = function(v)
+vec3.prototype.mid = function()
 {
-    return this.x + this.y + this.z - this.min(v) - this.max(v);
+    return this.x + this.y + this.z - this.min() - this.max();
 }
 
 vec3.prototype.crossproduct = function(v)
