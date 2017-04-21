@@ -24,32 +24,32 @@ vec3.prototype.sub = function(v)
 vec3.prototype.max = function()
 {
  
-    if(x>y)
+    if(this.x>this.y)
     {
-    if(x>z)
-        return x;
+    if(this.x>this.z)
+        return this.x;
     else
-        return z;
+        return this.z;
     }
-    else if(y>z)
-        return y;
+    else if(this.y>this.z)
+        return this.y;
     else
-        return z;
+        return this.z;
 }
 
 vec3.prototype.min = function()
 {
-    if(v.x<v.y)
+    if(this.x<this.y)
     {
-    if(v.x<v.z)
-        return v.x;
+    if(this.x<this.z)
+        return this.x;
     else
-        return v.z;
+        return this.z;
     }
-    else if(v.y<v.z)
-        return v.y;
+    else if(this.y<this.z)
+        return this.y;
     else
-        return v.z;
+        return this.z;
 }
 
 vec3.prototype.mid = function()
