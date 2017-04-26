@@ -53,7 +53,7 @@ function main(){
     scene.add( cube );    
     
     var light = new THREE.PointLight( 0xffffff);
-    light.position.set(1,1,5);
+    light.position.set(1,1,1);
     scene.add(light);
    
     document.addEventListener( 'mousedown', mouse_down_event);
@@ -87,6 +87,10 @@ function main(){
 		intersects[0].face.color.setRGB(0,0,1);
 		intersects[0].object.geometry.colorsNeedUpdate = true;
 	    }
+	    else if(intersects[0].face.color.b == 1){
+		intersects[0].face.color.setRGB(0.5,0.5,0.5);
+		intersects[0].object.geometry.colorsNeedUpdate = true;
+	    }	    
 	    else{
 	    intersects[0].face.color.setRGB(1,0,0);
 	    intersects[0].object.geometry.colorsNeedUpdate = true;
