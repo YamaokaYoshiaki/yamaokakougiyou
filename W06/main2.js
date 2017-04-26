@@ -66,7 +66,7 @@ function main(){
 	var vy = renderer.domElement.offsetTop;
 	var vw = renderer.domElement.width;
 	var vh = renderer.domElement.height;
-	
+	var red,blue,green;
 	var x_NDC = 2*(x_win-vx)/vw-1;
 	var y_NDC = -(2*(y_win-vy)/vh-1);
 	var p_NDC = new THREE.Vector3(x_NDC,y_NDC,1);
@@ -79,13 +79,11 @@ function main(){
 	var intersects = raycaster.intersectObject( cube);
 	if( intersects.length > 0)
 	{
-	    var red,blue,green;
+	    
 	    red = intersects[0].face.color.r;
 	    blue = intersects[0].face.color.b;
 	    green = intersects[0].face.color.g;
-	    intersects[0].face.color.r=g;
-	    intersects[0].face.color.g=b;
-	    intersects[0].face.color.b=r;
+	    intersects[0].face.color.setRGB(b,g,r);
 	    intersects[0].object.geometry.colorsNeedUpdate = true;
 	
 	}
