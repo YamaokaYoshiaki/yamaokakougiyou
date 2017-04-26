@@ -70,7 +70,7 @@ function main(){
     function loop()
     {
         requestAnimationFrame( loop );
-        cube.rotation.x += 0.005;
+        cube.rotation.x += 0.010;
 	cube.rotation.y += 0.005;
         renderer.render( scene, camera );
     }
