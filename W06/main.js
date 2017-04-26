@@ -61,7 +61,7 @@ function main(){
     scene.add( cube );    
     
     var light = new THREE.PointLight( 0xffffff);
-    light.position.set(1,1,1);
+    light.position.set(1,1,10);
     scene.add(light);
    
    
