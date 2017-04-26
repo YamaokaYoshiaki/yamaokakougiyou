@@ -79,22 +79,15 @@ function main(){
 	var intersects = raycaster.intersectObject( cube);
 	if( intersects.length > 0)
 	{
-	    if(intersects[0].face.color.r == 1){
-		intersects[0].face.color.setRGB(0,1,0);
-		intersects[0].object.geometry.colorsNeedUpdate = true;
-	    }
-	    else if(intersects[0].face.color.g == 1){
-		intersects[0].face.color.setRGB(0,0,1);
-		intersects[0].object.geometry.colorsNeedUpdate = true;
-	    }
-	    else if(intersects[0].face.color.b == 1){
-		intersects[0].face.color.setRGB(0.5,0.5,0.5);
-		intersects[0].object.geometry.colorsNeedUpdate = true;
-	    }	    
-	    else{
-	    intersects[0].face.color.setRGB(1,0,0);
+	    var red,blue,green;
+	    red = intersects[0].face.color.r;
+	    blue = intersects[0].face.color.b;
+	    green = intersects[0].face.color.g;
+	    intersects[0].face.color.r=g;
+	    intersects[0].face.color.g=b;
+	    intersects[0].face.color.b=r;
 	    intersects[0].object.geometry.colorsNeedUpdate = true;
-	    }
+	
 	}
 
     }
