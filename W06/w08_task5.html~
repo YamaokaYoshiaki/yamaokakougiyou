@@ -14,7 +14,6 @@
 
 
 
-
 	
 
 	vec3 CookTorranceReflection(vec3 C,vec3 L,vec3 N, vec3 V)
