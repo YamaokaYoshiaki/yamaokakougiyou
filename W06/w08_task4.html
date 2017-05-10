@@ -1,6 +1,6 @@
 <html>
     <head>
-	<title>W08: task4</title>
+	<title>W08: task40</title>
     </head>
     <body>
       <script src="three.min.js"></script>
@@ -89,7 +89,7 @@
 	varying vec4 point_position;
 	varying vec3 normal_vector;
 
-	vec3 CookTorranceReflection(vec3 C,vec3 L,vec3 N, vec3 V)
+	vec3 phongReflection(vec3 C,vec3 L,vec3 N, vec3 V)
 	{
 	float ka = 0.3;
 	float kd = 0.5;
@@ -133,7 +133,7 @@
 	vec3 N = normalize( normal_vector);
 	vec3 V = normalize( camera_position - point_position.xyz );
 	
-	vec3 shaded_color = CookTorranceReflection(C,L,N,V);
+	vec3 shaded_color = phongReflection(C,L,N,V);
 		  
 	gl_FragColor = vec4(shaded_color,1.0);
 	}
