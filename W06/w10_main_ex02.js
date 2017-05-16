@@ -32,9 +32,9 @@ function main()
     ];
 
     var scalars = [
-        0,   // S0
-        128, // S1
-        255  // S2
+        0.1,   // S0
+        0.2, // S1
+        0.8  // S2
     ];
 
     // Create color map
