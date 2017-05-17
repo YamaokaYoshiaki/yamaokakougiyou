@@ -39,16 +39,18 @@ function main()
 
     // Create color map
     var cmap = [];
-    for ( var i = 0; i < 256; i++ )
-    {
-        var S = i / 255.0; // [0,1]
+
+    
+    for ( var i = 0; i < 256 ; i++ )
+    {	
+        var S = i/255.0; // [0,1]
         var R = Math.max( Math.cos( ( S - 1.0 ) * Math.PI ), 0.0 );
         var G = Math.max( Math.cos( ( S - 0.5 ) * Math.PI ), 0.0 );
         var B = Math.max( Math.cos( S * Math.PI ), 0.0 );
         var color = new THREE.Color( R, G, B );
+
         cmap.push( [ S, '0x' + color.getHexString() ] );
     }
-    
 
     // Draw color map
     var lut = new THREE.Lut( 'rainbow', cmap.length );
@@ -80,8 +82,6 @@ function main()
 
     // Assign colors for each vertex
     material.vertexColors = THREE.VertexColors;
-    
-    
     for ( var i = 0; i < nfaces; i++ )
     {
         var id = faces[i];
@@ -99,21 +99,21 @@ function main()
 	var z = S2-S20;
 
 	var dmap;
- 	    var R = Math.max( Math.cos( ( S00 - 1.0 ) * Math.PI )*(1-x)+ Math.cos( ( S01 - 1.0 ) * Math.PI )*x, 0.0 );
-            var G = Math.max( Math.cos( ( S00 - 0.5 ) * Math.PI )*(1-x)+ Math.cos( ( S01 - 0.5 ) * Math.PI )*x, 0.0 );
-            var B = Math.max( Math.cos( S00 * Math.PI ) * (1-x)+ Math.cos( S01 * Math.PI )*x, 0.0 );
+ 	    var R = Math.max( Math.cos( ( S00/255 - 1.0 ) * Math.PI )*(1-x)+ Math.cos( ( S01/255 - 1.0 ) * Math.PI )*x, 0.0 );
+            var G = Math.max( Math.cos( ( S00/255 - 0.5 ) * Math.PI )*(1-x)+ Math.cos( ( S01/255 - 0.5 ) * Math.PI )*x, 0.0 );
+            var B = Math.max( Math.cos( S00/255 * Math.PI ) * (1-x)+ Math.cos( S01/255 * Math.PI )*x, 0.0 );
             var color = new THREE.Color( R, G, B );
             dmap=('0x' + color.getHexString() );
 	var emap;
- 	    var R1 = Math.max( Math.cos( ( S10 - 1.0 ) * Math.PI )*(1-y)+ Math.cos( ( S11 - 1.0 ) * Math.PI )*y, 0.0 );
-            var G1 = Math.max( Math.cos( ( S10 - 0.5 ) * Math.PI )*(1-y)+ Math.cos( ( S11 - 0.5 ) * Math.PI )*y, 0.0 );
-            var B1 = Math.max( Math.cos( S10 * Math.PI ) * (1-y)+ Math.cos( S11 * Math.PI )*y, 0.0 );
+ 	    var R1 = Math.max( Math.cos( ( S10/255 - 1.0 ) * Math.PI )*(1-y)+ Math.cos( ( S11/255 - 1.0 ) * Math.PI )*y, 0.0 );
+            var G1 = Math.max( Math.cos( ( S10/255 - 0.5 ) * Math.PI )*(1-y)+ Math.cos( ( S11/255 - 0.5 ) * Math.PI )*y, 0.0 );
+            var B1 = Math.max( Math.cos( S10/255 * Math.PI ) * (1-y)+ Math.cos( S11/255 * Math.PI )*y, 0.0 );
             var color1 = new THREE.Color( R1, G1, B1 );
             emap=('0x' + color1.getHexString() );
 	var fmap;
- 	    var R2 = Math.max( Math.cos( ( S20 - 1.0 ) * Math.PI )*(1-z)+ Math.cos( ( S21 - 1.0 ) * Math.PI )*z, 0.0 );
-            var G2 = Math.max( Math.cos( ( S20 - 0.5 ) * Math.PI )*(1-z)+ Math.cos( ( S21 - 0.5 ) * Math.PI )*z, 0.0 );
-            var B2 = Math.max( Math.cos( S20 * Math.PI ) * (1-z)+ Math.cos( S21 * Math.PI )*z, 0.0 );
+ 	    var R2 = Math.max( Math.cos( ( S20/255 - 1.0 ) * Math.PI )*(1-z)+ Math.cos( ( S21/255 - 1.0 ) * Math.PI )*z, 0.0 );
+            var G2 = Math.max( Math.cos( ( S20/255 - 0.5 ) * Math.PI )*(1-z)+ Math.cos( ( S21/255 - 0.5 ) * Math.PI )*z, 0.0 );
+            var B2 = Math.max( Math.cos( S20/255 * Math.PI ) * (1-z)+ Math.cos( S21/255 * Math.PI )*z, 0.0 );
             var color2 = new THREE.Color( R2, G2, B2 );
             fmap=('0x' + color2.getHexString() );
 	
@@ -128,6 +128,7 @@ function main()
         geometry.faces[i].vertexColors.push( C0 );
         geometry.faces[i].vertexColors.push( C1 );
         geometry.faces[i].vertexColors.push( C2 );
+
     }
 
     var triangle = new THREE.Mesh( geometry, material );
