@@ -2,7 +2,10 @@
     <head>
 	<title>W12: task2</title>
     </head>
+    <div id="display" style="witdh: 80%; float: left;">
+
     <body style="margin:0">
+
 	<script src="three.min.js"></script>
 	<script src="Lut.js"></script>
 	<script src="TrackballControls.js"></script>
@@ -12,6 +15,128 @@
 	<script src="Bounds.js"></script>
 	<script src="Isosurfaces3.js"></script>
 	<script src="w12_task3_main.js"></script>
+	<script type="x-shader/x-vertex" id="phong.vert">
+	varying vec3 point_color;
+	varying vec4 point_position;
+	varying vec3 normal_vector;
+	uniform vec3 light_position;
+	uniform vec3 camera_position;
+
+	vec3 PhongReflection(vec3 C,vec3 L,vec3 N, vec3 V)
+	{
+	float ka = 0.3;
+	float kd = 0.5;
+	float ks = 0.8;
+	float n = 50.0;
+
+	vec3 R = reflect( -L, N);
+	float dd = max( dot(N, L), 0.0);
+	float ds = pow( max( dot(R, V), 0.0), n);
+	if (dd <= 0.0){	 ds = 0.0;}
+	float Ia = ka;
+	float Id = kd*dd;
+	float Is = ks*ds;
+
+	return C*(Ia+Id+Is);
+	}
+
+
+	void main()
+	{
+	point_position = modelViewMatrix * vec4(position, 1.0);
+	normal_vector = normalMatrix * normal;
+
+	vec3 C = color;
+	vec3 L = normalize( light_position - point_position.xyz);
+	vec3 N = normalize( normal_vector);
+        vec3 V = normalize( camera_position - point_position.xyz);
+
+	point_color = PhongReflection(C,L,N,V);
+	gl_Position = projectionMatrix * point_position;
+	}
+      </script>
+      
+      <script type="x-shader/x-fragment" id="phong.frag">
+	varying vec3 point_color;
+	
+	void main(){
+	gl_FragColor = vec4(point_color,1.0);
+	}
+      </script>
+	<script type="x-shader/x-vertex" id="toon.vert">
+	  varying vec3 point_color;
+	  varying vec4 point_position;
+	  varying vec3 normal_vector;
+	  uniform vec3 light_position;
+	  uniform vec3 camera_position;
+
+	  vec3 ToonReflection(vec3 C,vec3 L,vec3 N,vec3 V){
+	  float ka = 0.3;   
+	  float kd = 0.5;   
+	  float ks = 0.8;   
+	  float n = 50.0;
+
+	  vec3 H = normalize(L+V);
+	  
+	  vec3 R = reflect(-L,N);
+	  float dd = max(dot(N,L),0.0);
+	  float ds = pow(max(dot(R,V),0.0),n);
+	  if(dd <= 0.0){
+		   ds=0.0;
+		   }
+		   
+		   float Ia = ka;
+		   float Id = kd * dd;
+		   float Is = ks * ds;
+
+		   const float A = 0.1;
+		   const float B = 0.3;
+		   const float c = 0.6;
+		   const float D = 1.0;
+		   
+		   float df = max(0.0,dot(N,L));
+		   if(df<A) df = 0.0;
+			    else if(df<B) df = B;
+					  else if(df<c) df = c;
+							else df = D;
+							
+							float sf = max(0.0,dot(N,H));
+							sf = pow(sf,n);
+							
+		   return vec3(Ia + df * Id + sf * Is);
+		   }
+		   
+		   void main()
+		   {
+		   point_position = modelViewMatrix * vec4(position,1.0);
+		   normal_vector = normalMatrix*normal;
+		   
+		   vec3 C = color;
+		   vec3 L = normalize(light_position - point_position.xyz);
+		   vec3 N = normalize(normal_vector);
+		   vec3 V = normalize(camera_position - point_position.xyz);
+		   point_color = ToonReflection(C,L,N,V);
+
+		   
+						       
+
+		   
+		   gl_Position = projectionMatrix * point_position;
+		   }
+		   </script>
+
+
+	
+	<script type="x-shader/x-fragment" id="toon.frag">
+	  varying vec3 point_color;
+
+		     
+	  void main()
+	  {
+	  gl_FragColor = vec4(point_color,1.0);
+	  }
+	</script>
+
 			<script type="x-shader/x-vertex" id="lambertian.vert">
 	  varying vec3 point_color;
 	  varying vec4 point_position;
@@ -54,4 +179,20 @@
 	 main();
 	</script>
     </body>
+    </div>
+
+    <div id="controller" style="width:20%; float:right;">
+
+      <label id="label" style="font-family:Arial;"></label>
+
+      <input type="range" min="0" max="1" step="0.01" value="0.5"
+
+	     id="isovalue"/>
+
+      <button id="change-isovalue-button" style="font-family=Arial;">
+
+	Apply</button>
+
+    </div>
+    
 </html>
