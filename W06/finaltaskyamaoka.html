@@ -8,11 +8,13 @@
 
      <form name="selbox">
        <p>select reflection pattern</p>
+       left
        <select name="league">
 	 <option value="">PhongReflection</option>
 	 <option value="">ToonReflection</option>
 	 <option value="">LambertianReflection</option>
        </select>
+       right
        <select name="league2">
 	 <option value="">PhongReflection</option>
 	 <option value="">ToonReflection</option>
@@ -26,7 +28,7 @@
 
       </div>
       
-    <div id="display" style="witdh: 90%;float: left;">
+    <div id="display" style="witdh: 50%;height: 50%;float: right;">
 
     <body style="margin:0">
 
@@ -203,7 +205,8 @@
 	  }
 	</script>
 	<div id="test">
-	<script>
+	  <script>
+
 	  var i=0;
 	  	  var screen = new KVS.THREEScreen();
 	  	  var screen2 = new KVS.THREEScreen();
@@ -223,7 +226,10 @@
 		  }
 	  screen.loop();
 	  screen2.loop();
+	  document.getElementById("controller").style.display="none";
 	  scs();
+
+
 		 }
 	  }
 	</script>
@@ -248,10 +254,12 @@
   onrendered: function(canvas) {
     var dataURI = canvas.toDataURL('image/png');
     $('img').attr('src',dataURI);
-  }
-});
 		  }
-	</script>
+
+		  });
+
+		  }
+		</script>
     </body>
     </div>
 

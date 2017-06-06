@@ -3,7 +3,7 @@ function main(type)
     var volume = new KVS.LobsterData();
     var screen = new KVS.THREEScreen();
     screen.init( volume, {
-        width: window.innerWidth,
+        width: window.innerWidth/2,
         height: window.innerHeight/2.3,
         enableAutoResize: false	
     });
