@@ -167,4 +167,5 @@ function Isosurfaces( volume, isovalue ,screen,type)
 	
 	return new THREE.Vector3().addVectors( v0.multiplyScalar(1-t), v1.multiplyScalar(t)); 
     }
+    
 }
